@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CharacterMVC.Models.Character
+
+<h1>Add a new Character</h1>
+
+@using (Html.BeginForm())
+{
+  <div class="settings">
+    @Html.LabelFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.FirstName)
+
+    @Html.LabelFor(model => model.LastName)
+    @Html.TextBoxFor(model => model.LastName)
+
+    @Html.Label("Age")
+    @Html.TextBoxFor(model => model.Age, new { type="number", min="0", max="100" })
+
+    @Html.LabelFor(model => model.MediaTitle)
+    @Html.TextBoxFor(model => model.MediaTitle)
+
+    @Html.LabelFor(model => model.MediaType)
+    @Html.TextBoxFor(model => model.MediaType)
+  </div>
+
+  <input class = "btn btn-secondary" type="submit" value="Add new Character"/>
+}
