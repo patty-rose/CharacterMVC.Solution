@@ -1,0 +1,17 @@
+<h1>All Characters:</h1>
+
+<ol>
+@foreach (Character character in Model)
+{
+    <ul>
+        <li>ID: @character.CharacterId</li>
+        <li>FirstName: @character.FirstName</li>
+        <li>LastName: @character.LastName</li>
+        <li>Age: @character.Age</li>
+        <li>MediaTitle: @character.MediaTitle</li>
+        <li>MediaType: @character.MediaType</li>
+    </ul>
+    <a href="/Characters/Details/@(character.CharacterId)"><p>View Details</p></a>
+    <br>
+}
+</ol>
