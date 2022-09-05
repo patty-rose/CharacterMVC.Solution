@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CharacterMVC.Models.Character
+
+<h2>Edit</h2>
+
+<h4>Edit @Model.FirstName @Model.LastName</h4>
+
+@using(Html.BeginForm())
+{
+  <div class="settings">
+    @Html.HiddenFor(model => model.CharacterId)
+
+    @Html.LabelFor(model => model.FirstName)
+    @Html.EditorFor(model => model.FirstName)
+
+    @Html.LabelFor(model => model.LastName)
+    @Html.EditorFor(model => model.LastName)
+
+    @Html.LabelFor(model => model.Age)
+    @Html.EditorFor(model => model.Age)
+
+    @Html.LabelFor(model => model.MediaTitle)
+    @Html.EditorFor(model => model.MediaTitle)
+
+    @Html.LabelFor(model => model.MediaType)
+    @Html.EditorFor(model => model.MediaType)
+
+    <input type="submit" value="Save" />
+  </div>
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

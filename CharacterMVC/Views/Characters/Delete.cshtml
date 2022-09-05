@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model CharacterMVC.Models.Character
+
+<h2>Are you sure you want to delete @Model.FirstName @Model.FirstName?</h2>
+<p>This Action is Permanent!</p>
+
+@using(Html.BeginForm())
+{
+  <input type="submit" value="Delete Forever"/>
+}
+@Html.ActionLink("Back to List", "Index")

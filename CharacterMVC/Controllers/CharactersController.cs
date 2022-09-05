@@ -24,25 +24,49 @@ namespace CharacterMVC.Controllers
       return View(allCharacters);
     }
 
-    public ActionResult Details(int id)
+    public IActionResult Details(int id)
     {
       var thisCharacter = Character.GetDetails(id);
 
       return View(thisCharacter);
     }
 
-    public ActionResult Create()
+    public IActionResult Create()
     {
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Character character)
+    public IActionResult Create(Character character)
     {
       Character.Post(character);
-
       return RedirectToAction("Index");
     }
 
+    public IActionResult Edit(int id)
+    {
+      var thisCharacter = Character.GetDetails(id);
+      return View(thisCharacter);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Character character)
+    {
+      Character.Put(character);
+      return RedirectToAction("Details", new { id = character.CharacterId });
+    }
+
+    public IActionResult Delete(int id)
+      {
+        var thisCharacter = Character.GetDetails(id);
+        return View(thisCharacter);
+      }
+
+      [HttpPost, ActionName("Delete")]
+      public IActionResult DeleteConfirmed(int id)
+      {
+        Character.Delete(id);
+        return RedirectToAction("Index");
+      }
   }
 } 

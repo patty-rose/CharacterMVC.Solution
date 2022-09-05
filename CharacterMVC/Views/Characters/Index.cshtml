@@ -5,11 +5,13 @@
 <ol>
 @foreach (Character character in Model)
 {
-    <ul>
-        <li>@character.FirstName @character.LastName</li>
-    </ul>
-    @* <a href="/Characters/Details/@(character.CharacterId)"><p>View Details</p></a> *@
-    <br>
-    <p>@Html.ActionLink("Character Details", "Details", new { id = character.CharacterId })</p>
+  <ul>
+      <li>@character.FirstName @character.LastName</li>
+  </ul>
+  @* <a href="/Characters/Details/@(character.CharacterId)"><p>View Details</p></a> *@
+  <br>
+  <p>@Html.ActionLink("Character Details", "Details", new { id = character.CharacterId })</p>
+  <p>@Html.ActionLink("Edit Character", "Edit", new { id = character.CharacterId })</p>
+  <p>@Html.ActionLink("Delete Character", "Delete", new { id = character.CharacterId })</p>
 }
 </ol>
